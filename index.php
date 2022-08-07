@@ -13,8 +13,10 @@ require("connection.php")
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</head>
+  
+   </head>
 <body class ="bg-light">
     <div class="container bg-dark text-light p-3 rounded my-4 px-3">
         <div class="d-flex align-items-center justify-content-between">
@@ -99,6 +101,7 @@ require("connection.php")
          <label class="input-group-text" >image</label>
          <input type="file" class="form-control"  name ="image" accept = ".png,.jpg,.jpeg,.svg" required>
      </div>
+     <input type="hidden" name = "editpid" id = "editpid">
         </div>
       <div class="modal-footer">
         <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -106,10 +109,10 @@ require("connection.php")
       </div>
          </div>
          </form>
-    
+</div>
   </div>
   
-  <div class="modal fade" id="editproduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div  class="modal fade" id="editproduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
        <div class="modal-dialog">
 
           <form action="cruid.php" method = "POST" enctype="multipart/form-data">
@@ -128,8 +131,8 @@ require("connection.php")
            <span class="input-group-text" >Price</span>
            <input type="text" class="form-control" name = "price" min="1" id = "editprice"  required>
       </div>
-      <img src="" alt="" width="100%" class ="mb-3">
-      <img class = "mb-3" src="" alt="" id ="editimage"><br/>
+      <img src="" alt="" width="100%" class ="mb-3" id ="editimg" height=""25%><br/>
+     
       <div class="input-group mb-3">
          <label class="input-group-text" >image</label>
          <input type="file" class="form-control"  name ="image"  accept = ".png,.jpg,.jpeg,.svg" >
@@ -156,7 +159,12 @@ require("connection.php")
    var editproduct = new bootstrap.Modal(document.getElementById('editproduct'), {
       keyboard: false
     });
-    editproduct.show();    
+    
+    document.querySelector('#editname').value=`$fetch[name]`;
+    document.querySelector('#editprice').value=`$fetch[price]`;
+    document.querySelector('#editimg').src=`$fetch_src$fetch[image]`;
+    document.querySelector('#editpid').value=`$_GET[edit]`;
+    editproduct.show();
    
    </script>
    ";
@@ -176,6 +184,8 @@ require("connection.php")
     
 </body>
 </html> 
+
+
 
 
 
