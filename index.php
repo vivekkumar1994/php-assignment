@@ -101,7 +101,7 @@ require("connection.php")
          <label class="input-group-text" >image</label>
          <input type="file" class="form-control"  name ="image" accept = ".png,.jpg,.jpeg,.svg" required>
      </div>
-     <input type="hidden" name = "editpid" id = "editpid">
+   
         </div>
       <div class="modal-footer">
         <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -137,11 +137,13 @@ require("connection.php")
          <label class="input-group-text" >image</label>
          <input type="file" class="form-control"  name ="image"  accept = ".png,.jpg,.jpeg,.svg" >
      </div>
+     <input type="hidden" name = "editpid" id = "editpid">
         </div>
       <div class="modal-footer">
         <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
         <button type="submit" class="btn btn-success" name = "editproduct"> Edit</button>
       </div>
+      
          </div>
          </form>
     
